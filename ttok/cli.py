@@ -18,7 +18,7 @@ import tiktoken
 @click.option(
     "decode_tokens", "--decode", is_flag=True, help="Convert token integers to text"
 )
-@click.option("as_tokens", "--tokens", is_flag=True, help="Output full tokens")
+@click.option("as_tokens", "--as-tokens", is_flag=True, help="Output full tokens")
 @click.option("--allow-special", is_flag=True, help="Do not error on special tokens")
 def cli(
     prompt,

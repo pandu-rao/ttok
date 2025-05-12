@@ -40,13 +40,13 @@ def test_ttok_count_and_tokens(args, expected_length, expected_tokens):
     (
         (["hello", "world", "--encode"], "15339 1917"),
         (["15339", "1917", "--decode"], "hello world"),
-        (["hello", "world", "--encode", "--tokens"], "[b'hello', b' world']"),
-        (["15339", "1917", "--decode", "--tokens"], "[b'hello', b' world']"),
-        (["hello", "world", "--tokens"], "[b'hello', b' world']"),
-        # $ ttok --encode --tokens 私は学生です
+        (["hello", "world", "--encode", "--as-tokens"], "[b'hello', b' world']"),
+        (["15339", "1917", "--decode", "--as-tokens"], "[b'hello', b' world']"),
+        (["hello", "world", "--as-tokens"], "[b'hello', b' world']"),
+        # $ ttok --encode --as-tokens 私は学生です
         # [b'\xe7\xa7\x81', b'\xe3\x81\xaf', b'\xe5\xad\xa6', b'\xe7\x94\x9f', b'\xe3\x81\xa7\xe3\x81\x99']
         (
-            ["--encode", "--tokens", "私は学生です"],
+            ["--encode", "--as-tokens", "私は学生です"],
             "[b'\\xe7\\xa7\\x81', b'\\xe3\\x81\\xaf', b'\\xe5\\xad\\xa6', b'\\xe7\\x94\\x9f', b'\\xe3\\x81\\xa7\\xe3\\x81\\x99']",
         ),
         # $ ttok --encode 私は学生です
@@ -58,7 +58,7 @@ def test_ttok_count_and_tokens(args, expected_length, expected_tokens):
         # $ ttok --decode 86127 15682 48864 21990 38641
         # 私は学生です
         (
-            [b"86127", b"15682", b"48864", b"21990", b"38641", "--decode", "--tokens"],
+            [b"86127", b"15682", b"48864", b"21990", b"38641", "--decode", "--as-tokens"],
             "[b'\\xe7\\xa7\\x81', b'\\xe3\\x81\\xaf', b'\\xe5\\xad\\xa6', b'\\xe7\\x94\\x9f', b'\\xe3\\x81\\xa7\\xe3\\x81\\x99']",
         ),
     ),
